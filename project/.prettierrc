@@ -1,0 +1,7 @@
+{
+  "parser": "babel",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "trailingComma": "es5",
+}

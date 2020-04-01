@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h4.col-md-6.col-12.offset-md-3.mb-3 Edit TODO
+
+  form.form-horizontal.col-md-6.col-12.offset-md-3(action=`/todo/${todo.id}/edit`, method="post")
+    .form-group
+      label(for="title") Title
+      input#title.form-control(type="text", name="title", required, value=todo.title)
+    
+    .form-group
+      label(for="description") Description
+      textarea#description.form-control(name="description", required)= todo.description
+
+    .form-group
+      button.btn.btn-primary.btn-block(type="submit") Save
+

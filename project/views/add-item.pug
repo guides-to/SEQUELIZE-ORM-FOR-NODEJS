@@ -1,0 +1,12 @@
+extend layout
+
+block content
+  h4.col-md-6.col-12.offset-md-3.mb-3 New Item
+  
+  form.form-horizontal.col-md-6.col-12.offset-md-3(action=`/item/new`, method="POST")
+    .form-group
+      label(for="title") Title
+      input#title.form-control(type="text", name="title", required)
+    
+    .form-group
+      button.btn.btn-primary.btn-block(type="submit") Create

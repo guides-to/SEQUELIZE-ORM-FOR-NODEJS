@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h4.col-md-6.col-12.offset-md-3.mb-3 New User
+
+  form.form-horizontal.col-md-6.col-12.offset-md-3(action="/user/new", method="post")
+    .form-group
+      label(for="name") Name
+      input.form-control#name(type="text", name="name", required)
+    .form-group
+      label(for="email") Email
+      input.form-control#email(type="email", name="email", required)
+    .form-group
+      button.btn.btn-block.btn-primary(type="submit") Create
+
+  

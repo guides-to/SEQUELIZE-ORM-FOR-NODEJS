@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+    title #{title}
+  body
+    nav.navbar.navbar-dark.bg-dark
+      a.navbar-brand(href='#') My Site
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse
+        .navbar-nav
+          a.nav-item.nav-link.active(href='/') Home 
+          a.nav-item.nav-link(href='/todo/all') My Todos
+          a.nav-item.nav-link(href='/user/all') Users
+    
+    .container.mt-3
+      block content
+      if success
+        div.alert.alert-success(role="alert")= message
+      
+      if error
+        div.alert.alert-danger(role="alert")= message
+      
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+    script(src="/static/app.js")

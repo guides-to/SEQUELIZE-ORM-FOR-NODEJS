@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  div
+    h4 Todo Details
+    span.float-right.mb-4
+      a.btn.btn-secondary.btn-sm(href=`/item/new`) Add New Item
+  
+  div.mt-5
+    p
+      strong Title:&nbsp;
+      span #{todo.title}
+    p
+      strong Description:&nbsp;
+      span #{todo.description}
+
+  table.table.table-dark
+    tr
+      th Title
+      th Created At
+      th Status
+      th Action
+    tbody 
+      each item in items
+        tr
+          td= item.title
+          td= moment(item.createdAt).fromNow()
+          if item.isCompleted
+            td
+              span.badge.badge-success Completed
+            - var type = "i"
+            - var label = "Incomplete"
+          else
+            td
+              span.badge.badge-warning In Progress
+            - var type = "c"
+            - var label = "Complete"
+          td
+            .btn-group
+              a.btn.btn-sm.btn-primary(href=`/item/${item.id}/status?type=${type}`) Mark #{label}
+              a.btn.btn-sm.btn-danger(href=`/item/${item.id}/delete`) Delete
+              a.btn.btn-sm.btn-success(href=`/item/${item.id}/edit`) Edit
